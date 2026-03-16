@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block page_title%}inheritance{% endblock %}</title>
+</head>
+<body>
+<table border="10" width="1500" height="700">
+
+        <tr>
+            <td style= "width: 10%;" bgcolor="orange"><img width="100"  height="100"src="logo.png"></td>
+            <td colspan="4" align="center" style="width: 100%; height: 200;" bgcolor="orange"> B.S.A. College of Engineering & Technology(BSACET).</td>
+
+        </tr>
+
+</td>
+       <tr>
+        <td align="center"><a href="home.html" style="color:black;" >home Page</a></td>
+        <td align="center"><a href="login.html"  style="color:black;">Login </a></td>
+        <td align="center"><a href="registration.html" style="color:black;">registration </a></td>
+        <td align="center"><a href="CATOLOGUE.html" style="color:black;">catalogue </a></td>
+
+        <td align="center"><a href="cart.html" style="color:black;"> add to cart</a></td>
+      </tr>
+      <tr><td align="center">Branch</td><td align="center">book name</td><td align="center">price</td><td align="center">Quantity</td><td align="center">Amount</td></tr>
+<tr>
+    <td align="center"><a href="cse.html" style="color:black;">CSE</a></td>
+    <td align="center">Cse manual</td><td align="center">40.5</td><td align="center">2</td><td align="center">91</td>
+
+
+
+</tr>
+        <tr><td align="center"><a href="ECE.html" style="color:black;">ECE </a></td><td align="center">Ece</td> </td><td align="center">99.5$</td><td align="center">1</td><td align="center">99.5$</td></tr>
+        <td align="center"><a href="EEE.html" style="color:black;">EEE</a><td align="center">eee manual</td><td align="center">99.5$</td><td align="center">1</td><td align="center">99.5$</td></td>
+        <tr>
+            <td align="center"><a href="CIVIL.html" style="color:black;">CIVIL</a><td align="center">civil manual</td><td align="center">75.5</td><td align="center">2</td><td align="center">151</td></td>
+        </tr>
+        <tr>
+
+
+
+                    <td align="center" >Total Amount</td>
+                    <td colspan="4" align="center">441$</td>
+                </tr>
+                </td>
+
+{% block page_content%}
+        {% endblock %}
+</body>
+</html>
