@@ -1,6 +1,8 @@
 <header>
     <nav>
-        <a href="home">home page</a>
+        <a href="{% url 'home' %}">HOME</a>
+        <a href="{% url 'allposts' %}">ALLPOSTS</a>
+
     </nav>
 </header>
 {{ active }}

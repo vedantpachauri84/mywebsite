@@ -1,0 +1,45 @@
+
+/* app.css */
+
+/* Global page background */
+body {
+    background-color: #f5f7fa;
+     background-image: url("images/java.jpg");
+
+    margin: 0;
+    padding: 0;
+}
+
+/* Header styling */
+header {
+    background-color: ;   /* dark navy */
+    color: white;
+    padding: 15px;
+    text-align: center;
+}
+
+/* Active navigation link */
+nav a.active {
+    color: red;   /* red highlight */
+    font-weight: bold;
+}
+
+/* Page title block */
+h1, .page-title {
+    background-color: green;   /* bright blue */
+    color: white;
+    padding: 10px;
+    text-align: center;
+}
+
+/* Content area */
+.page-content {
+    background-color: #ffffff;   /* white background */
+    padding: 20px;
+    margin: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+a {
+    color: black;
+}

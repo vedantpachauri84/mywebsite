@@ -1,10 +1,40 @@
 {% extends "base.html"%}
-    <{% block page_title%}
- designing a webpage
- {% endblock %}
+{% load static %}
+
+
 
  {% block page_content%}
-{% include "blogs/includes/header.html" with active="posts" %}
- this is the example of inheritance and wher i take base .html to about.html
 
- {% endblock %}
+<section>
+    <nav>
+        <h1> {{blog.title}}</h1>
+    </nav>
+</section>
+
+
+
+
+<img src="{% static 'images/'|add:blog.title|add:'.jpg' %}" alt="{{blog.intro }}" width="200px">
+<br> {{blog.title }}<br>
+post date {{blog.date}}
+{{blog.summary|linebreaks}}
+<address>By {{blog.author}}<br> <a href="mailto:{{ blog.author.email }}">{{blog.author.email}}</a></address>
+<section>
+    <h3>comments</h3>
+    <ul>
+
+         {% for  blog in comments %}
+        <li>
+            BY  {{blog.username}}<br>
+            {{blog.text}}<br>
+
+        </li>
+         {% endfor %}
+    </ul>
+</section>
+    <form action="{% url 'about' blog.title %}" method="POST">
+        {% csrf_token %}
+        {{form}}
+          <button>Save</button>
+    </form>
+{% endblock %}

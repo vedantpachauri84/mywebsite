@@ -1,29 +1,60 @@
+from datetime import datetime
 from django.shortcuts import render
-from django.http import HttpResponse, HttpResponseNotFound
+from django.http import Http404,HttpResponseRedirect
+from django.urls import reverse
 from django.template.loader import render_to_string
+from django.http import HttpResponseNotFound
+from.models import Post
+from.forms import CommentForm
 
-def home(request):
-    return render(request, 'blogs/index.html')
-
-    #res_data=render_to_string("blogs/index.html")
-   #return HttpResponse(res_data)
+# Dictionary of blogs
+blognames = {
 
 
-blognames={
-    "python":"this is python",
-    "java":"this is java",
-    "django":None,
 }
-def allposts(request):
-    list2=list(blognames.keys())
-    return render(request,'blogs/allposts.html',{"list3":list2})
-def remove2(blogname):
-    list=blogname.upper()
-    return list
 
-def about(request,blogname):
-    try:
-        blog=blognames[blogname]
-        return render(request,'blogs/about.html',{"blogname":blogname,"blog":remove2(blogname)})
-    except KeyError:
-        return HttpResponseNotFound("Blogname not found")
+# Home Page
+def home(request):
+    list2 = Post.objects.all().order_by("title")
+    return render(request, 'blogs/index.html', {"list3": list2})
+
+# Show all blogs
+def allposts(request):
+    list2=Post.objects.all()
+    return render(request, 'blogs/allposts.html', {"list3": list2})
+
+# Individual blog page
+from django.shortcuts import render, get_object_or_404
+from django.http import HttpResponseRedirect
+from django.urls import reverse
+from .models import Post
+from .forms import CommentForm
+
+from django.shortcuts import get_object_or_404
+from django.http import HttpResponseRedirect
+from django.urls import reverse
+
+def about(request, blogname):
+
+    blog = get_object_or_404(Post, title=blogname)
+    comments = blog.comments.all()
+
+    if request.method == "POST":
+        form = CommentForm(request.POST)
+
+        if form.is_valid():
+            comment = form.save(commit=False)
+            comment.post = blog
+            comment.save()
+
+            return HttpResponseRedirect(
+                reverse('about', args=[blogname])
+            )
+    else:
+        form = CommentForm()
+
+    return render(request, 'blogs/about.html', {
+        "blog": blog,
+        "comments": comments,
+        "form": form
+    })
