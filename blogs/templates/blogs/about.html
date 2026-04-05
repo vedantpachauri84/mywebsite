@@ -26,7 +26,12 @@ post date {{blog.date}}
          {% for  blog in comments %}
         <li>
             BY  {{blog.username}}<br>
-            {{blog.text}}<br>
+            <table>
+           <tr>
+               <td>  BY  {{blog.username}}</td>
+               <td> {{blog.text}}<br></td>
+                </tr>
+            </table>
 
         </li>
          {% endfor %}
@@ -37,4 +42,40 @@ post date {{blog.date}}
         {{form}}
           <button>Save</button>
     </form>
+<h2 style="text-align:center; color:#333; margin-top:30px;">
+    Ideas Section
+</h2>
+
+{% for idea in ideas %}
+    <div style="
+        border:1px solid #ddd;
+        border-radius:10px;
+        padding:15px;
+        margin:15px 0;
+        box-shadow:0 4px 8px rgba(0,0,0,0.1);
+        background-color:#f9f9f9;
+    ">
+        <h3 style="margin:0; color:#2c3e50;">
+            {{ idea.title }}
+        </h3>
+
+        <p style="color:#555; margin-top:8px;">
+            {{ idea.description }}
+        </p>
+
+        <p style="font-size:14px; color:#888; text-align:right;">
+            — {{ idea.name }}
+        </p>
+    </div>
+{% empty %}
+    <p style="text-align:center; color:gray;">
+        No ideas available yet.
+    </p>
+{% endfor %}
+
+<form action="{% url 'about' blog.title %}" method="POST">
+       {% csrf_token %}
+        {{form}}
+          <button>Save</button>
+   </form>
 {% endblock %}

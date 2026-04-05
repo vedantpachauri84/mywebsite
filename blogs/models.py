@@ -13,7 +13,13 @@ class Post(models.Model):
     summary = models.TextField()
     date = models.DateTimeField(auto_now_add=False)
     author=models.ForeignKey(Author, on_delete=models.CASCADE)
-    image=models.ImageField()
+
+
+    def total_likes(self):
+        return self.likes.count()
+
+    def __str__(self):
+        return self.title
     def __str__(self):
         return f'{self.title}'
     def __str__(self):
@@ -25,3 +31,9 @@ class Comment(models.Model):
     post=models.ForeignKey(Post, on_delete=models.CASCADE,related_name='comments')
     def __str__(self):
         return f'BY {self.username} on post {self.post.title}'
+class Ideas(models.Model):
+    name=models.CharField(max_length=30)
+    title=models.CharField(max_length=100)
+    description=models.TextField()
+
+
