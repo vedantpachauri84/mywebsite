@@ -1,45 +1,116 @@
-
-/* app.css */
-
-/* Global page background */
+/* ===== Global Styles ===== */
 body {
-    background-color: #f5f7fa;
-     background-image: url("images/java.jpg");
-
     margin: 0;
     padding: 0;
+    font-family: 'Georgia', serif;
+    background-color: #f9fafc;
+    color: #333;
 }
 
-/* Header styling */
+/* ===== Header ===== */
 header {
-    background-color: ;   /* dark navy */
+    background-color: #111827;
     color: white;
-    padding: 15px;
+    padding: 25px 0;
     text-align: center;
+    font-size: 28px;
+    font-weight: bold;
+    letter-spacing: 1px;
 }
 
-/* Active navigation link */
+/* ===== Navigation ===== */
+nav {
+    text-align: center;
+    background-color: #1f2937;
+    padding: 10px 0;
+}
+
+nav a {
+    color: #d1d5db;
+    text-decoration: none;
+    margin: 0 15px;
+    font-size: 16px;
+    transition: 0.3s ease;
+}
+
+nav a:hover {
+    color: white;
+}
+
 nav a.active {
-    color: red;   /* red highlight */
+    color: #22c55e;
     font-weight: bold;
 }
 
-/* Page title block */
+/* ===== Blog Title ===== */
 h1, .page-title {
-    background-color: green;   /* bright blue */
-    color: white;
-    padding: 10px;
     text-align: center;
+    margin-top: 30px;
+    font-size: 36px;
+    font-weight: 600;
+    color: #111827;
 }
 
-/* Content area */
+/* ===== Blog Post Card ===== */
 .page-content {
-    background-color: #ffffff;   /* white background */
-    padding: 20px;
-    margin: 20px;
-    border-radius: 8px;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    max-width: 800px;
+    margin: 30px auto;
+    background-color: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+    line-height: 1.8;
+    font-size: 18px;
 }
+
+/* ===== Blog Paragraphs ===== */
+.page-content p {
+    margin-bottom: 20px;
+}
+
+/* ===== Links ===== */
 a {
-    color: black;
+    color: #2563eb;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* ===== Buttons (Optional for Read More) ===== */
+.button {
+    display: inline-block;
+    background-color: #2563eb;
+    color: white;
+    padding: 8px 16px;
+    border-radius: 6px;
+    margin-top: 10px;
+    transition: 0.3s;
+}
+
+.button:hover {
+    background-color: #1e40af;
+}
+
+/* ===== Footer ===== */
+footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #111827;
+    color: #9ca3af;
+    margin-top: 40px;
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 768px) {
+    .page-content {
+        margin: 15px;
+        padding: 20px;
+        font-size: 16px;
+    }
+
+    h1 {
+        font-size: 26px;
+    }
 }
