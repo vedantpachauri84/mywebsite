@@ -53,12 +53,18 @@ TEMPLATES = [
 WSGI_APPLICATION = 'mywebsite.wsgi.application'
 
 # DATABASE
-DATABASES = {
-'default': dj_database_url.config(
-    default=os.environ.get("DATABASE_URL")
-
-    )
-}
+# DATABASE
+if os.environ.get("DATABASE_URL"):
+    DATABASES = {
+        'default': dj_database_url.parse(os.environ.get("DATABASE_URL"))
+    }
+else:
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': BASE_DIR / 'db.sqlite3',
+        }
+    }
 
 # PASSWORD VALIDATION
 AUTH_PASSWORD_VALIDATORS = [

@@ -42,13 +42,16 @@ post date {{blog.date}}
         {{form}}
           <button>Save</button>
     </form>
-<H7>
-    COPY RIGHT TO VEDANT PACHAURI
-</H7>
+<H2>
+    ideas
+</H2>
 
 <form action="{% url 'about' blog.title %}" method="POST">
        {% csrf_token %}
         {{form}}
           <button>Save</button>
    </form>
+<H7>
+    COPY RIGHT TO VEDANT PACHAURI
+</H7>
 {% endblock %}
