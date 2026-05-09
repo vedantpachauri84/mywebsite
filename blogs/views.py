@@ -36,31 +36,30 @@ def about(request, blogname):
 
     blog = get_object_or_404(Post, title=blogname)
     comments = blog.comments.all()
-    ideas=Ideas.objects.all()
 
     if request.method == "POST":
         form = CommentForm(request.POST)
-        ideas=Ideas(request.POST)
 
-        if form.is_valid():
+
+        if form.is_valid() :
+
             comment = form.save(commit=False)
             comment.post = blog
             comment.save()
-            ideas=ideas.save(commit=False)
-            ideas.post = blog
-            ideas.save()
+
+
 
             return HttpResponseRedirect(
                 reverse('about', args=[blogname])
             )
+
     else:
         form = CommentForm()
-        ideas=Ideas.objects.all()
+
 
     return render(request, 'blogs/about.html', {
         "blog": blog,
         "comments": comments,
         "form": form,
-        "ideas": ideas,
-    })
 
+    })

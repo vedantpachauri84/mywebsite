@@ -28,8 +28,8 @@ post date {{blog.date}}
             BY  {{blog.username}}<br>
             <table>
            <tr>
-               <td>  BY  {{blog.username}}</td>
-               <td> {{blog.text}}<br></td>
+
+               <td>{{blog.text}}<br></td>
                 </tr>
             </table>
 
@@ -42,15 +42,7 @@ post date {{blog.date}}
         {{form}}
           <button>Save</button>
     </form>
-<H2>
-    ideas
-</H2>
 
-<form action="{% url 'about' blog.title %}" method="POST">
-       {% csrf_token %}
-        {{form}}
-          <button>Save</button>
-   </form>
 <H7>
     COPY RIGHT TO VEDANT PACHAURI
 </H7>
