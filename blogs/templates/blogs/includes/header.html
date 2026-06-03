@@ -1,9 +1,23 @@
 <header>
     <nav>
+        <a href="https://www.testdome.com/certificates/570279d714b8433db9f8806714ecac27" class="testdome-certificate-stamp silver">
+            <span class="testdome-certificate-name">Vedant Pachauri</span>
+            <span class="testdome-certificate-test-name">Django</span>
+            <span class="testdome-certificate-card-logo">TestDome<br>Certificate</span>
+        </a>
+        <script>
+            var stylesheet = "https://www.testdome.com/content/certificates/embed.css";
+            link = document.createElement("link");
+            link.href = stylesheet;
+            link.type = "text/css";
+            link.rel = "stylesheet";
+            link.media = "screen,print";
+            document.getElementsByTagName("head")[0].appendChild(link);
+        </script>
         <a href="{% url 'home' %}">HOME</a>
         <a href="{% url 'allposts' %}">ALLPOSTS</a>
         <a href="{% url 'logout' %}">Logout</a>
-
+<h5>Welcome {{ user.username }}😊😊</h5>
     </nav>
 </header>
 {{ active }}

@@ -1,6 +1,9 @@
+
 {% load static %}
 
 <section>
+
+<div class="post-card">
     <h1>{{ blog.title }}</h1>
 
     <img src="{% static 'images/'|add:blog.title|add:'.jpg' %}" alt="{{blog.id }}" width="100px">
@@ -13,4 +16,5 @@
 
 
     <p>{{ blog.summary }}</p>
+</div>
 </section>

@@ -4,19 +4,26 @@
    {% block page_title %}ALLPOSTS {% endblock %}
 
  {% block page_content %}
+
 <ul>
 
     {% for  blog in list3 %}
      <section>
-          <h1>  {{blog.title}}</h1>
+           <h1>  {{blog.title}}</h1>
+         <div class="post-card">
+
   <img src="{% static 'images/'|add:blog.title|add:'.jpg' %}" alt="{{blog.intro }}" width="100px">
 <br>{{blog.date}}
     <li><a href="{% url 'about' blog.title %}">{{blog.title}}</a></li>
          <li>  <a href="{% url 'allposts' %}">allposts</a></li>
+       </div>
+         <br>
      </section>
+
     {% endfor %}
 
 </ul>
+
 
  {% endblock %}
 
